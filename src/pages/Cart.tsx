@@ -13,7 +13,13 @@ export default function Cart() {
     });
     message += `\nTotal aprox: $${cartTotal.toFixed(2)}\n\nPor favor confírmenme disponibilidad y coordinar entrega. ¡Gracias!`;
     const encodedMessage = encodeURIComponent(message);
-    window.open(`https://wa.me/593999999999?text=${encodedMessage}`, '_blank');
+    const a = document.createElement('a');
+    a.href = `https://wa.me/593999999999?text=${encodedMessage}`;
+    a.target = '_blank';
+    a.rel = 'noopener noreferrer';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
   };
 
   return (

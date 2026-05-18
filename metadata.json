@@ -1,0 +1,6 @@
+{
+  "name": "Reserva Beer Shop",
+  "description": "Premium e-commerce platform for ordering imported and national beers with WhatsApp delivery integration.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

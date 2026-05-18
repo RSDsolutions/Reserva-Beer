@@ -3,6 +3,9 @@ import { products } from '../data';
 import { ProductCard } from '../components/ProductCard';
 import { motion, useInView } from 'motion/react';
 import { useRef } from 'react';
+import coronaImg from '../../img/Corona-png.png';
+import modeloImg from '../../img/Modelo-png.png';
+import modeloNegraImg from '../../img/Modelo-negra.png';
 
 function SectionReveal({
   children,
@@ -91,17 +94,13 @@ export default function Featured() {
               </div>
 
               <div className="flex justify-center lg:justify-end h-full min-h-[360px] items-center">
-                <motion.svg
-                  width="150"
-                  height="400"
-                  viewBox="0 0 48 120"
-                  className="text-color-border-subtle"
-                  fill="currentColor"
+                <motion.img
+                  src={coronaImg}
+                  alt="Corona"
+                  className="h-[360px] w-auto object-contain drop-shadow-[0_12px_40px_rgba(198,241,53,0.25)]"
                   animate={{ y: [0, -16, 0] }}
                   transition={{ duration: 4.5, repeat: Infinity, ease: 'easeInOut' }}
-                >
-                  <path d="M19.5 0h9v16c0 5 4 8 7 12s5 9 5 16v72c0 2.2-1.8 4-4 4h-25c-2.2 0-4-1.8-4-4v-72c0-7 2-12 5-16s7-7 7-12v-16z" />
-                </motion.svg>
+                />
               </div>
             </div>
           </div>
@@ -118,29 +117,21 @@ export default function Featured() {
 
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 p-8 md:p-16 items-center relative z-10">
               <div className="order-2 lg:order-1 flex justify-center lg:justify-start h-full min-h-[360px] items-end">
-                <div className="flex items-end gap-8">
-                  <motion.svg
-                    width="120"
-                    height="320"
-                    viewBox="0 0 48 120"
-                    className="text-color-border-subtle"
-                    fill="currentColor"
+                <div className="flex items-end gap-6">
+                  <motion.img
+                    src={modeloImg}
+                    alt="Modelo Especial"
+                    className="h-[320px] w-auto object-contain drop-shadow-[0_12px_40px_rgba(212,175,55,0.22)]"
                     animate={{ y: [0, -18, 0] }}
                     transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
-                  >
-                    <path d="M19.5 0h9v16c0 5 4 8 7 12s5 9 5 16v72c0 2.2-1.8 4-4 4h-25c-2.2 0-4-1.8-4-4v-72c0-7 2-12 5-16s7-7 7-12v-16z" />
-                  </motion.svg>
-                  <motion.svg
-                    width="120"
-                    height="320"
-                    viewBox="0 0 48 120"
-                    className="text-[#D4AF37]/20"
-                    fill="currentColor"
+                  />
+                  <motion.img
+                    src={modeloNegraImg}
+                    alt="Modelo Negra"
+                    className="h-[280px] w-auto object-contain drop-shadow-[0_12px_40px_rgba(212,175,55,0.15)] opacity-80"
                     animate={{ y: [0, -12, 0] }}
                     transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut', delay: 0.8 }}
-                  >
-                    <path d="M19.5 0h9v16c0 5 4 8 7 12s5 9 5 16v72c0 2.2-1.8 4-4 4h-25c-2.2 0-4-1.8-4-4v-72c0-7 2-12 5-16s7-7 7-12v-16z" />
-                  </motion.svg>
+                  />
                 </div>
               </div>
 

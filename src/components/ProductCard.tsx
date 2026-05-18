@@ -5,114 +5,47 @@ import { useState } from 'react';
 import { Check } from 'lucide-react';
 import coronaImg from '../../img/Corona-png.png';
 import modeloImg from '../../img/Modelo-png.png';
+import heinekenImg from '../../img/Heineken-png.png';
+import stellaImg from '../../img/Stella-png.png';
+import budweiserImg from '../../img/Budweiser-png.png';
+import solImg from '../../img/Sol-png.png';
+import brahmaImg from '../../img/Brahma-png.png';
+import cusquenaImg from '../../img/Cusquena-png.png';
+import pilsenerImg from '../../img/Pilsener-png.png';
+import clubImg from '../../img/Club-png.png';
 
-/* ── Brand colour config para visuals HTML ── */
-const brandConfig: Record<string, { color: string; bg: string; text: string }> = {
-  Heineken: {
-    color: '#00A551',
-    bg: 'linear-gradient(145deg, #00A55118 0%, #004d2630 100%)',
-    text: '#00A551',
-  },
-  'Stella Artois': {
-    color: '#003B6F',
-    bg: 'linear-gradient(145deg, #003B6F18 0%, #001a3330 100%)',
-    text: '#4d8cc7',
-  },
-  Budweiser: {
-    color: '#BD0000',
-    bg: 'linear-gradient(145deg, #BD000018 0%, #6b000030 100%)',
-    text: '#e05555',
-  },
-  Club: {
-    color: '#4CAF50',
-    bg: 'linear-gradient(145deg, #4CAF5018 0%, #1b5e2030 100%)',
-    text: '#4CAF50',
-  },
-  Pilsener: {
-    color: '#D4AF37',
-    bg: 'linear-gradient(145deg, #D4AF3718 0%, #7d651830 100%)',
-    text: '#D4AF37',
-  },
-  Brahma: {
-    color: '#0077B6',
-    bg: 'linear-gradient(145deg, #0077B618 0%, #00356630 100%)',
-    text: '#4daad9',
-  },
-  Cusqueña: {
-    color: '#C0392B',
-    bg: 'linear-gradient(145deg, #C0392B18 0%, #6b1a1530 100%)',
-    text: '#d96d63',
-  },
-  Sol: {
-    color: '#F39C12',
-    bg: 'linear-gradient(145deg, #F39C1218 0%, #8B5E0830 100%)',
-    text: '#F39C12',
-  },
+const brandImages: Record<string, string> = {
+  Corona: coronaImg,
+  Modelo: modeloImg,
+  Heineken: heinekenImg,
+  'Stella Artois': stellaImg,
+  Budweiser: budweiserImg,
+  Sol: solImg,
+  Brahma: brahmaImg,
+  Cusqueña: cusquenaImg,
+  Pilsener: pilsenerImg,
+  Club: clubImg,
 };
 
 /* ── Visual por producto ── */
 function ProductVisual({ product }: { product: Product }) {
-  /* Imágenes reales */
-  if (product.brand === 'Corona') {
+  const img = brandImages[product.brand];
+  if (img) {
     return (
       <img
-        src={coronaImg}
+        src={img}
         alt={product.name}
-        className="h-full w-full object-contain drop-shadow-[0_6px_20px_rgba(198,241,53,0.18)] group-hover:drop-shadow-[0_8px_28px_rgba(198,241,53,0.38)] group-hover:scale-105 transition-all duration-500"
+        className="h-full w-full object-contain group-hover:scale-105 transition-transform duration-500 drop-shadow-[0_6px_20px_rgba(0,0,0,0.18)] group-hover:drop-shadow-[0_8px_28px_rgba(198,241,53,0.28)]"
       />
     );
   }
-  if (product.brand === 'Modelo') {
-    return (
-      <img
-        src={modeloImg}
-        alt={product.name}
-        className="h-full w-full object-contain drop-shadow-[0_6px_20px_rgba(212,175,55,0.18)] group-hover:drop-shadow-[0_8px_28px_rgba(212,175,55,0.38)] group-hover:scale-105 transition-all duration-500"
-      />
-    );
-  }
-
-  /* Visuals HTML para el resto de marcas */
-  const cfg = brandConfig[product.brand] ?? {
-    color: '#888888',
-    bg: 'linear-gradient(145deg, #88888818 0%, #44444430 100%)',
-    text: '#888888',
-  };
 
   return (
-    <div
-      className="relative w-full h-full rounded-lg overflow-hidden flex flex-col items-center justify-center gap-2"
-      style={{ background: cfg.bg }}
-    >
-      {/* Silueta de botella de fondo */}
-      <svg
-        className="absolute opacity-[0.07] group-hover:opacity-[0.14] transition-opacity duration-500"
-        width="80"
-        height="200"
-        viewBox="0 0 48 120"
-        fill={cfg.color}
-      >
-        <path d="M19.5 0h9v16c0 5 4 8 7 12s5 9 5 16v72c0 2.2-1.8 4-4 4h-25c-2.2 0-4-1.8-4-4v-72c0-7 2-12 5-16s7-7 7-12v-16z" />
-      </svg>
-
-      {/* Flag grande */}
-      <span className="text-5xl relative z-10 drop-shadow-md group-hover:scale-110 transition-transform duration-300">
-        {product.imageFlag}
-      </span>
-
-      {/* Nombre de marca */}
-      <span
-        className="text-xs font-black uppercase tracking-widest relative z-10 text-center px-3"
-        style={{ color: cfg.text }}
-      >
+    <div className="relative w-full h-full rounded-lg overflow-hidden flex flex-col items-center justify-center gap-2 bg-color-surface-card">
+      <span className="text-5xl drop-shadow-md">{product.imageFlag}</span>
+      <span className="text-xs font-black uppercase tracking-widest text-color-muted text-center px-3">
         {product.brand}
       </span>
-
-      {/* Línea de color inferior */}
-      <span
-        className="absolute bottom-0 left-0 right-0 h-[3px] opacity-50 group-hover:opacity-80 transition-opacity duration-300"
-        style={{ backgroundColor: cfg.color }}
-      />
     </div>
   );
 }

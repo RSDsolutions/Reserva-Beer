@@ -1,6 +1,8 @@
 import { Link } from 'react-router-dom';
 import { ArrowRight, ShoppingBag, MessageCircle, Truck } from 'lucide-react';
 import { products } from '../data';
+import coronaImg from '../../img/Corona-png.png';
+import modeloImg from '../../img/Modelo-png.png';
 import { ProductCard } from '../components/ProductCard';
 import { motion, AnimatePresence, useInView } from 'motion/react';
 import { useState, useEffect, useRef } from 'react';
@@ -208,21 +210,16 @@ export default function Home() {
                   <motion.div
                     animate={{ y: [0, -20, 0] }}
                     transition={{ duration: 3.8, repeat: Infinity, ease: 'easeInOut' }}
-                    className="w-40 h-72 bg-color-surface border border-color-border-subtle rounded-2xl flex flex-col items-center p-5 shadow-2xl -rotate-3 cursor-pointer hover:rotate-0 transition-transform duration-300 group"
+                    className="w-40 h-72 bg-color-surface border border-color-border-subtle rounded-2xl flex flex-col items-center p-4 shadow-2xl -rotate-3 cursor-pointer hover:rotate-0 transition-transform duration-300 group"
                   >
-                    <div className="flex-1 flex items-center justify-center">
-                      <svg
-                        width="38"
-                        height="96"
-                        viewBox="0 0 48 120"
-                        fill="currentColor"
-                        className="text-color-border-subtle group-hover:text-color-accent/30 transition-colors duration-500"
-                      >
-                        <path d="M19.5 0h9v16c0 5 4 8 7 12s5 9 5 16v72c0 2.2-1.8 4-4 4h-25c-2.2 0-4-1.8-4-4v-72c0-7 2-12 5-16s7-7 7-12v-16z" />
-                        <path d="M20 2h8v14.5c0 4.5 3.5 7.5 6.5 11s4.5 8 4.5 14.5v3h-30v-3c0-6.5 1.5-11 4.5-14.5s6.5-6.5 6.5-11v-14.5z" fill="#1A1A1A" />
-                      </svg>
+                    <div className="flex-1 flex items-center justify-center w-full overflow-hidden">
+                      <img
+                        src={coronaImg}
+                        alt="Corona"
+                        className="h-full w-full object-contain drop-shadow-[0_8px_24px_rgba(198,241,53,0.15)] group-hover:drop-shadow-[0_8px_32px_rgba(198,241,53,0.35)] transition-all duration-500 group-hover:scale-105"
+                      />
                     </div>
-                    <div className="text-center">
+                    <div className="text-center mt-2">
                       <span className="text-[9px] text-color-accent font-bold uppercase tracking-widest block">Corona</span>
                       <p className="text-xs font-bold text-color-secondary">Extra 355ml</p>
                       <p className="text-color-accent font-black text-lg mt-1">$1.50</p>
@@ -233,21 +230,16 @@ export default function Home() {
                   <motion.div
                     animate={{ y: [0, -14, 0] }}
                     transition={{ duration: 4.5, repeat: Infinity, ease: 'easeInOut', delay: 0.7 }}
-                    className="w-40 h-72 bg-color-surface border border-color-border-subtle rounded-2xl flex flex-col items-center p-5 shadow-2xl rotate-3 cursor-pointer hover:rotate-0 transition-transform duration-300 group mb-10"
+                    className="w-40 h-72 bg-color-surface border border-color-border-subtle rounded-2xl flex flex-col items-center p-4 shadow-2xl rotate-3 cursor-pointer hover:rotate-0 transition-transform duration-300 group mb-10"
                   >
-                    <div className="flex-1 flex items-center justify-center">
-                      <svg
-                        width="44"
-                        height="108"
-                        viewBox="0 0 48 120"
-                        fill="currentColor"
-                        className="text-color-border-subtle group-hover:text-[#D4AF37]/30 transition-colors duration-500"
-                      >
-                        <path d="M19.5 0h9v16c0 5 4 8 7 12s5 9 5 16v72c0 2.2-1.8 4-4 4h-25c-2.2 0-4-1.8-4-4v-72c0-7 2-12 5-16s7-7 7-12v-16z" />
-                        <path d="M20 2h8v14.5c0 4.5 3.5 7.5 6.5 11s4.5 8 4.5 14.5v3h-30v-3c0-6.5 1.5-11 4.5-14.5s6.5-6.5 6.5-11v-14.5z" fill="#1A1A1A" />
-                      </svg>
+                    <div className="flex-1 flex items-center justify-center w-full overflow-hidden">
+                      <img
+                        src={modeloImg}
+                        alt="Modelo"
+                        className="h-full w-full object-contain drop-shadow-[0_8px_24px_rgba(212,175,55,0.15)] group-hover:drop-shadow-[0_8px_32px_rgba(212,175,55,0.35)] transition-all duration-500 group-hover:scale-105"
+                      />
                     </div>
-                    <div className="text-center">
+                    <div className="text-center mt-2">
                       <span className="text-[9px] text-color-accent font-bold uppercase tracking-widest block">Modelo</span>
                       <p className="text-xs font-bold text-color-secondary">Especial 355ml</p>
                       <p className="text-color-accent font-black text-lg mt-1">$1.75</p>
